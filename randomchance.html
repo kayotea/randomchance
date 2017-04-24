@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script use strict; type="text/javascript">
+        var quarters = 100;
+
+        function quarterGame(quarters){
+            var winnings = 0;
+            var game_count = quarters; //number of times game can be run
+
+            // run the game for however many quarters we have
+            for (var i = 1; i <= game_count; i++){
+                var d = Math.random();
+                
+                // the game was won: 1 in 100 chance
+                if (d <= 0.01){
+                    // winnings between 50 and 100
+                    winnings = (Math.floor(Math.random()*50)+50) + quarters;
+                    var blah = winnings-quarters;
+                    console.log("won! quarters left: " + quarters + " winnings: " + blah + " total winnings: " + winnings);
+                    return winnings;
+                }
+                console.log("lost. quarters left: " + quarters);
+                quarters--; // decrement quarters after each game
+            }
+            console.log("no quarters left: " + quarters);
+            return quarters;
+        }
+
+        quarterGame(quarters);
+    </script>
+</head>
+</html>
